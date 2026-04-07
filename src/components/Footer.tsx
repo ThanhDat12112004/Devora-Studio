@@ -1,11 +1,10 @@
+import logo from "@/assets/logo.png";
+
 const Footer = () => {
   return (
     <footer className="bg-foreground text-primary-foreground/60 border-t border-primary-foreground/10 py-8">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-        <span className="text-lg font-extrabold font-heading">
-          <span className="text-primary">Devora</span>
-          <span className="text-primary-foreground"> Studio</span>
-        </span>
+        <img src={logo} alt="Devora Studio" className="h-9 w-auto" loading="lazy" />
         <p className="text-xs">
           © 2026 Devora Studio. All rights reserved.
         </p>

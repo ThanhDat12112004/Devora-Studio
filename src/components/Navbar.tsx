@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
+import { useLocation } from "react-router-dom";
 
 const navItems = [
   { label: "Thiết kế Website", href: "#services" },
@@ -11,15 +13,14 @@ const navItems = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const homeHashPrefix = location.pathname === "/" ? "" : "/";
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 md:h-20 px-4">
-        <a href="#" className="flex items-center gap-2">
-          <span className="text-2xl font-extrabold font-heading tracking-tight">
-            <span className="text-gradient">Devora</span>
-            <span className="text-foreground"> Studio</span>
-          </span>
+        <a href="/" className="flex items-center" aria-label="Devora Studio">
+          <img src={logo} alt="Devora Studio" className="h-8 md:h-10 w-auto" loading="eager" />
         </a>
 
         {/* Desktop */}
@@ -27,7 +28,7 @@ const Navbar = () => {
           {navItems.map((item) => (
             <li key={item.label}>
               <a
-                href={item.href}
+                href={`${homeHashPrefix}${item.href}`}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
                 {item.label}
@@ -37,7 +38,7 @@ const Navbar = () => {
         </ul>
 
         <a
-          href="#contact"
+          href={`${homeHashPrefix}#contact`}
           className="hidden md:inline-flex px-5 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
         >
           Liên hệ ngay
@@ -59,7 +60,7 @@ const Navbar = () => {
             {navItems.map((item) => (
               <li key={item.label}>
                 <a
-                  href={item.href}
+                  href={`${homeHashPrefix}${item.href}`}
                   className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary"
                   onClick={() => setIsOpen(false)}
                 >
@@ -69,7 +70,7 @@ const Navbar = () => {
             ))}
             <li>
               <a
-                href="#contact"
+                href={`${homeHashPrefix}#contact`}
                 className="block py-2.5 text-center rounded-lg bg-primary text-primary-foreground text-sm font-semibold"
                 onClick={() => setIsOpen(false)}
               >

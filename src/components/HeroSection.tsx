@@ -2,8 +2,6 @@ import heroTeam from "@/assets/hero-team.jpg";
 import { ArrowRight, CheckCircle } from "lucide-react";
 
 const highlights = [
-  "6+ năm kinh nghiệm",
-  "200+ dự án hoàn thành",
   "100% khách hàng hài lòng",
 ];
 
@@ -106,16 +104,6 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Floating stats cards */}
-          <div className="absolute -bottom-6 -left-6 bg-card rounded-xl shadow-xl border border-border p-4 animate-float">
-            <p className="text-3xl font-extrabold text-gradient">6+</p>
-            <p className="text-xs text-muted-foreground font-medium">Năm kinh nghiệm</p>
-          </div>
-
-          <div className="absolute -top-4 -right-2 bg-card rounded-xl shadow-xl border border-border p-4 animate-float" style={{ animationDelay: "1.5s" }}>
-            <p className="text-3xl font-extrabold text-gradient">200+</p>
-            <p className="text-xs text-muted-foreground font-medium">Dự án hoàn thành</p>
-          </div>
         </div>
       </div>
 

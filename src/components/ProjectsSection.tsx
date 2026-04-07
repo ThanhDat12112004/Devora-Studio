@@ -1,14 +1,41 @@
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
-import project4 from "@/assets/project-4.jpg";
+import project5 from "@/assets/project-5.jpg";
 import ScrollAnimate from "./ScrollAnimate";
 
+const getPreviewImage = (url: string) =>
+  `https://image.thum.io/get/width/1200/noanimate/${encodeURIComponent(url)}`;
+
 const projects = [
-  { img: project1, title: "Website Doanh Nghiệp", category: "Website, Design" },
-  { img: project2, title: "Website Bán Hàng", category: "E-commerce, UI/UX" },
-  { img: project3, title: "Nhận Diện Thương Hiệu", category: "Branding, Design" },
-  { img: project4, title: "Thiết Kế App Mobile", category: "App, UI/UX" },
+  {
+    img: getPreviewImage("https://thanhdat12112004.github.io/demo-spa/"),
+    fallbackImg: project1,
+    title: "Demo Spa",
+    category: "Spa • Landing Page",
+    href: "https://thanhdat12112004.github.io/demo-spa/",
+  },
+  {
+    img: getPreviewImage("https://thanhdat12112004.github.io/gioithieu-sanpham/"),
+    fallbackImg: project2,
+    title: "ProMax X1 — Giới thiệu sản phẩm công nghệ",
+    category: "Product • One-page",
+    href: "https://thanhdat12112004.github.io/gioithieu-sanpham/",
+  },
+  {
+    img: getPreviewImage("https://thanhdat12112004.github.io/coffee-demo/"),
+    fallbackImg: project3,
+    title: "Coffee Demo — Quán cafe",
+    category: "F&B • Landing Page",
+    href: "https://thanhdat12112004.github.io/coffee-demo/",
+  },
+  {
+    img: getPreviewImage("https://vietautoescuela.com/"),
+    fallbackImg: project5,
+    title: "Việt Autoescuela — Thi trắc nghiệm DGT",
+    category: "Quiz • Web App",
+    href: "https://vietautoescuela.com/",
+  },
 ];
 
 const ProjectsSection = () => {
@@ -29,10 +56,18 @@ const ProjectsSection = () => {
         <div className="grid sm:grid-cols-2 gap-6">
           {projects.map((p, i) => (
             <ScrollAnimate key={i} delay={i * 100}>
-              <div className="group relative rounded-2xl overflow-hidden cursor-pointer">
+              <a
+                href={p.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group relative rounded-2xl overflow-hidden cursor-pointer block focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
                 <img
                   src={p.img}
                   alt={p.title}
+                  onError={(e) => {
+                    e.currentTarget.src = p.fallbackImg;
+                  }}
                   loading="lazy"
                   width={800}
                   height={660}
@@ -43,13 +78,16 @@ const ProjectsSection = () => {
                     {p.category}
                   </span>
                   <h3 className="text-xl font-bold text-primary-foreground mt-1">{p.title}</h3>
+                  <span className="mt-2 text-xs text-primary-foreground/70 underline underline-offset-4">
+                    Xem dự án
+                  </span>
                 </div>
                 <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center">
                   <span className="text-sm font-bold text-primary-foreground">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-              </div>
+              </a>
             </ScrollAnimate>
           ))}
         </div>
