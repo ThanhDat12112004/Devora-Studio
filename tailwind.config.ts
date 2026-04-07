@@ -12,6 +12,10 @@ export default {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      heading: ['Be Vietnam Pro', 'sans-serif'],
+      body: ['Be Vietnam Pro', 'sans-serif'],
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
