@@ -31,7 +31,7 @@ const posts = [
 
 const BlogSection = () => {
   return (
-    <section id="blog" className="section-padding">
+    <section id="blog" className="section-padding spotlight-section">
       <div className="container mx-auto">
         <ScrollAnimate>
           <div className="text-center mb-16">
@@ -44,7 +44,7 @@ const BlogSection = () => {
         <div className="grid md:grid-cols-3 gap-6">
           {posts.map((post, i) => (
             <ScrollAnimate key={i} delay={i * 150}>
-              <div className="group rounded-2xl bg-card border border-border overflow-hidden hover:shadow-lg transition-shadow h-full">
+              <div className="group card-pop rounded-2xl bg-card border border-border overflow-hidden h-full">
                 <img
                   src={post.image}
                   alt={post.title}

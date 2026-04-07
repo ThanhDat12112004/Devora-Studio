@@ -53,7 +53,7 @@ const packages: PackageItem[] = [
 
 const PackagesSection = () => {
   return (
-    <section id="packages" className="section-padding">
+    <section id="packages" className="section-padding spotlight-section">
       <div className="container mx-auto">
         <ScrollAnimate>
           <div className="text-center mb-14">
@@ -74,9 +74,9 @@ const PackagesSection = () => {
             <ScrollAnimate key={p.title} delay={i * 120}>
               <div
                 className={[
-                  "relative rounded-2xl bg-card border border-border p-7 md:p-8 h-full",
+                  "relative rounded-2xl bg-card border border-border p-7 md:p-8 h-full card-pop",
                   "shadow-sm",
-                  p.highlighted ? "border-primary/30 shadow-xl shadow-primary/10" : "hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all",
+                  p.highlighted ? "border-primary/40 shadow-xl shadow-primary/20 bg-gradient-to-b from-primary/5 to-card" : "hover:border-primary/30",
                 ].join(" ")}
               >
                 {p.badge && (

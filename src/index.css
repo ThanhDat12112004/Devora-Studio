@@ -97,6 +97,9 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--body-font);
+    background-image:
+      radial-gradient(circle at 10% 10%, hsl(200 85% 48% / 0.06), transparent 32%),
+      radial-gradient(circle at 90% 20%, hsl(190 90% 42% / 0.05), transparent 30%);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -116,6 +119,27 @@
 
   .section-padding {
     @apply py-16 md:py-24 px-4 md:px-8;
+  }
+
+  .spotlight-section {
+    @apply relative overflow-hidden;
+  }
+
+  .spotlight-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 20%, hsl(200 85% 48% / 0.10), transparent 35%);
+    pointer-events: none;
+  }
+
+  .card-pop {
+    @apply transition-all duration-300;
+  }
+
+  .card-pop:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 50px -24px hsl(200 85% 48% / 0.45);
   }
 }
 

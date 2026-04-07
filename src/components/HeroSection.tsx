@@ -7,7 +7,7 @@ const highlights = [
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-hero">
+    <section className="relative overflow-hidden bg-gradient-hero pt-24 pb-14 md:pt-28 md:pb-16">
       {/* Decorative shapes */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/5 -translate-y-1/3 translate-x-1/3" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-primary/5 translate-y-1/2 -translate-x-1/4" />
@@ -24,7 +24,7 @@ const HeroSection = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 md:gap-10 items-center relative z-10">
         {/* Left */}
         <div className="animate-fade-in-up">
           {/* Brand badge */}
@@ -49,7 +49,7 @@ const HeroSection = () => {
             </span>
           </h1>
 
-          <p className="mt-8 text-lg text-muted-foreground max-w-md leading-relaxed">
+          <p className="mt-6 text-lg text-muted-foreground max-w-md leading-relaxed">
             Chuyển đổi số online — Bứt phá doanh nghiệp bền vững với giải pháp website & digital marketing toàn diện.
           </p>
 
@@ -63,7 +63,7 @@ const HeroSection = () => {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="#contact"
               className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5"
@@ -86,13 +86,13 @@ const HeroSection = () => {
           <div className="absolute -top-4 -right-4 w-full h-full rounded-2xl border-2 border-primary/20" />
           <div className="absolute -bottom-4 -left-4 w-full h-full rounded-2xl bg-primary/5" />
 
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 border border-border">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 border border-border w-full max-w-[560px]">
             <img
               src={heroTeam}
               alt="Đội ngũ Devora Studio"
               width={1280}
               height={800}
-              className="w-full max-w-lg object-cover"
+              className="w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
 

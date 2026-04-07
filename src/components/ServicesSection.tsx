@@ -27,7 +27,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="section-padding bg-card">
+    <section id="services" className="section-padding bg-card spotlight-section">
       <div className="container mx-auto">
         <ScrollAnimate>
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -46,7 +46,7 @@ const ServicesSection = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((s, i) => (
             <ScrollAnimate key={s.num} delay={i * 150}>
-              <div className="group relative p-8 rounded-2xl bg-background border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 h-full">
+              <div className="group card-pop relative p-8 rounded-2xl bg-background border border-border hover:border-primary/40 h-full">
                 <span className="text-6xl font-black text-border/60 absolute top-4 right-6 font-heading">
                   {s.num}
                 </span>

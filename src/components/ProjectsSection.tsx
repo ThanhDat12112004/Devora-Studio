@@ -4,34 +4,27 @@ import project3 from "@/assets/project-3.jpg";
 import project5 from "@/assets/project-5.jpg";
 import ScrollAnimate from "./ScrollAnimate";
 
-const getPreviewImage = (url: string) =>
-  `https://image.thum.io/get/width/1200/noanimate/${encodeURIComponent(url)}`;
-
 const projects = [
   {
-    img: getPreviewImage("https://thanhdat12112004.github.io/demo-spa/"),
-    fallbackImg: project1,
+    img: project1,
     title: "Demo Spa",
     category: "Spa • Landing Page",
     href: "https://thanhdat12112004.github.io/demo-spa/",
   },
   {
-    img: getPreviewImage("https://thanhdat12112004.github.io/gioithieu-sanpham/"),
-    fallbackImg: project2,
+    img: project2,
     title: "ProMax X1 — Giới thiệu sản phẩm công nghệ",
     category: "Product • One-page",
     href: "https://thanhdat12112004.github.io/gioithieu-sanpham/",
   },
   {
-    img: getPreviewImage("https://thanhdat12112004.github.io/coffee-demo/"),
-    fallbackImg: project3,
+    img: project3,
     title: "Coffee Demo — Quán cafe",
     category: "F&B • Landing Page",
     href: "https://thanhdat12112004.github.io/coffee-demo/",
   },
   {
-    img: getPreviewImage("https://vietautoescuela.com/"),
-    fallbackImg: project5,
+    img: project5,
     title: "Việt Autoescuela — Thi trắc nghiệm DGT",
     category: "Quiz • Web App",
     href: "https://vietautoescuela.com/",
@@ -40,7 +33,7 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="section-padding">
+    <section id="projects" className="section-padding spotlight-section">
       <div className="container mx-auto">
         <ScrollAnimate>
           <div className="text-center mb-16">
@@ -60,14 +53,11 @@ const ProjectsSection = () => {
                 href={p.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group relative rounded-2xl overflow-hidden cursor-pointer block focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="group card-pop relative rounded-2xl overflow-hidden cursor-pointer block focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 <img
                   src={p.img}
                   alt={p.title}
-                  onError={(e) => {
-                    e.currentTarget.src = p.fallbackImg;
-                  }}
                   loading="lazy"
                   width={800}
                   height={660}
