@@ -1,4 +1,6 @@
 import heroTeam from "@/assets/hero-team.jpg";
+import logoHero from "@/assets/logo_hero.png";
+import heroBg from "@/assets/hero-bg.svg";
 import { ArrowRight, CheckCircle } from "lucide-react";
 
 const highlights = [
@@ -7,22 +9,11 @@ const highlights = [
 
 const HeroSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-hero pt-24 pb-14 md:pt-28 md:pb-16">
-      {/* Decorative shapes */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/5 -translate-y-1/3 translate-x-1/3" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-primary/5 translate-y-1/2 -translate-x-1/4" />
-      <div className="absolute top-1/3 left-1/4 w-3 h-3 rounded-full bg-primary/30 animate-float" />
-      <div className="absolute top-1/2 right-1/3 w-2 h-2 rounded-full bg-primary/20 animate-float" style={{ animationDelay: "1s" }} />
-      <div className="absolute bottom-1/4 left-1/3 w-4 h-4 rounded-full bg-primary/15 animate-float" style={{ animationDelay: "2s" }} />
-
-      {/* Grid pattern overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: "radial-gradient(hsl(200, 85%, 48%) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      />
+    <section
+      className="relative overflow-hidden pt-24 pb-14 md:pt-28 md:pb-16 bg-cover bg-center"
+      style={{ backgroundImage: `url(${heroBg})` }}
+    >
+      <div className="absolute inset-0 bg-white/25" />
 
       <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 md:gap-10 items-center relative z-10">
         {/* Left */}
@@ -56,7 +47,7 @@ const HeroSection = () => {
           {/* Highlights */}
           <div className="mt-6 flex flex-wrap gap-4">
             {highlights.map((h) => (
-              <div key={h} className="flex items-center gap-2">
+              <div key={h} className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/70 border border-primary/10">
                 <CheckCircle className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium text-foreground">{h}</span>
               </div>
@@ -66,14 +57,17 @@ const HeroSection = () => {
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:shadow-xl hover:shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5"
+              className="group relative inline-flex items-center gap-2 px-9 py-4 rounded-xl bg-gradient-to-r from-cyan-300 via-cyan-400 to-blue-500 text-white font-extrabold text-base border border-cyan-100/70 shadow-[0_0_0_2px_rgba(255,255,255,0.42),0_16px_40px_-12px_rgba(14,165,233,0.65)] hover:shadow-[0_0_0_2px_rgba(255,255,255,0.6),0_22px_48px_-12px_rgba(14,165,233,0.75)] transition-all duration-300 hover:-translate-y-1"
             >
-              Nhận báo giá miễn phí
+              <span className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-cyan-200/50 to-blue-300/40 blur opacity-60 -z-10" />
+              <span className="[text-shadow:_0_1px_1px_rgba(0,0,0,0.35),_0_0_10px_rgba(255,255,255,0.2)]">
+                Nhận báo giá miễn phí
+              </span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#projects"
-              className="px-8 py-4 rounded-xl border-2 border-border text-foreground font-semibold text-sm hover:border-primary hover:text-primary transition-colors"
+              className="px-8 py-4 rounded-xl border-2 border-primary/40 bg-white/90 text-foreground font-bold text-sm shadow-md shadow-primary/10 hover:border-primary hover:bg-white hover:text-primary transition-all duration-300 hover:-translate-y-0.5"
             >
               Xem dự án
             </a>
@@ -96,11 +90,14 @@ const HeroSection = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
 
-            {/* Overlay brand watermark */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-foreground/60 to-transparent">
-              <p className="text-2xl font-extrabold text-primary-foreground font-heading tracking-wider">
-                DEVORA <span className="font-light">STUDIO</span>
-              </p>
+            {/* Overlay brand logo */}
+            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-foreground/65 to-transparent">
+              <img
+                src={logoHero}
+                alt="Devora Studio logo"
+                className="h-10 md:h-14 w-auto drop-shadow-lg"
+                loading="lazy"
+              />
             </div>
           </div>
 

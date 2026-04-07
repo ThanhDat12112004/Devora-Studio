@@ -2,7 +2,9 @@ import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
 import project5 from "@/assets/project-5.jpg";
+import { useRef } from "react";
 import ScrollAnimate from "./ScrollAnimate";
+import { useAutoHorizontalScroll } from "@/hooks/useAutoHorizontalScroll";
 
 const projects = [
   {
@@ -32,6 +34,9 @@ const projects = [
 ];
 
 const ProjectsSection = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  useAutoHorizontalScroll(scrollRef);
+
   return (
     <section id="projects" className="section-padding spotlight-section">
       <div className="container mx-auto">
@@ -46,9 +51,9 @@ const ProjectsSection = () => {
             </p>
           </div>
         </ScrollAnimate>
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div ref={scrollRef} className="flex sm:grid sm:grid-cols-2 gap-4 sm:gap-6 overflow-x-auto overflow-y-hidden sm:overflow-visible snap-x snap-mandatory sm:snap-none -mx-4 px-4 sm:mx-0 sm:px-0 touch-pan-x overscroll-x-contain">
           {projects.map((p, i) => (
-            <ScrollAnimate key={i} delay={i * 100}>
+            <ScrollAnimate key={p.title} delay={i * 100} className="min-w-[88%] sm:min-w-0 snap-start">
               <a
                 href={p.href}
                 target="_blank"
@@ -59,8 +64,8 @@ const ProjectsSection = () => {
                   src={p.img}
                   alt={p.title}
                   loading="lazy"
-                  width={800}
-                  height={660}
+                  width={1200}
+                  height={800}
                   className="w-full h-72 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">

@@ -1,5 +1,7 @@
 import { Globe, TrendingUp, Palette } from "lucide-react";
+import { useRef } from "react";
 import ScrollAnimate from "./ScrollAnimate";
+import { useAutoHorizontalScroll } from "@/hooks/useAutoHorizontalScroll";
 
 const services = [
   {
@@ -26,6 +28,9 @@ const services = [
 ];
 
 const ServicesSection = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  useAutoHorizontalScroll(scrollRef);
+
   return (
     <section id="services" className="section-padding bg-card spotlight-section">
       <div className="container mx-auto">
@@ -43,9 +48,9 @@ const ServicesSection = () => {
             </p>
           </div>
         </ScrollAnimate>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div ref={scrollRef} className="flex md:grid md:grid-cols-3 gap-4 md:gap-8 overflow-x-auto overflow-y-hidden md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 px-4 md:mx-0 md:px-0 touch-pan-x overscroll-x-contain">
           {services.map((s, i) => (
-            <ScrollAnimate key={s.num} delay={i * 150}>
+            <ScrollAnimate key={s.num} delay={i * 150} className="min-w-[88%] sm:min-w-[70%] md:min-w-0 snap-start">
               <div className="group card-pop relative p-8 rounded-2xl bg-background border border-border hover:border-primary/40 h-full">
                 <span className="text-6xl font-black text-border/60 absolute top-4 right-6 font-heading">
                   {s.num}
@@ -56,7 +61,7 @@ const ServicesSection = () => {
                 <h3 className="text-xl font-bold font-heading text-foreground mb-3">
                   {s.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6 clamp-3">
                   {s.desc}
                 </p>
                 <div className="flex flex-wrap gap-2">

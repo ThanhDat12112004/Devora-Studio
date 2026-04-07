@@ -1,9 +1,11 @@
 import { ArrowRight } from "lucide-react";
+import { useRef } from "react";
 import ScrollAnimate from "./ScrollAnimate";
 import xuHuongTkWeb2026 from "@/assets/xuhuong_tkweb2026.png";
 import seoImage from "@/assets/seo.png";
 import taiSaoCanWebImage from "@/assets/taisaocanweb.png";
 import { Link } from "react-router-dom";
+import { useAutoHorizontalScroll } from "@/hooks/useAutoHorizontalScroll";
 
 const posts = [
   {
@@ -30,6 +32,9 @@ const posts = [
 ];
 
 const BlogSection = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  useAutoHorizontalScroll(scrollRef);
+
   return (
     <section id="blog" className="section-padding spotlight-section">
       <div className="container mx-auto">
@@ -41,9 +46,9 @@ const BlogSection = () => {
             </h2>
           </div>
         </ScrollAnimate>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div ref={scrollRef} className="flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto overflow-y-hidden md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 px-4 md:mx-0 md:px-0 touch-pan-x overscroll-x-contain">
           {posts.map((post, i) => (
-            <ScrollAnimate key={i} delay={i * 150}>
+            <ScrollAnimate key={post.title} delay={i * 150} className="min-w-[88%] sm:min-w-[70%] md:min-w-0 snap-start">
               <div className="group card-pop rounded-2xl bg-card border border-border overflow-hidden h-full">
                 <img
                   src={post.image}
